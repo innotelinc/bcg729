@@ -30,13 +30,13 @@ jobs:
           git checkout main
 
           # Save your current sync file
-          cp .github/workflows/fork-sync.yml /tmp/fork-sync.yml || true
+          cp .github/workflows/sync.yml /tmp/fork-sync.yml || true
 
           # Merge everything
           git merge upstream/main --no-edit || echo "Nothing to merge"
 
           # Restore your sync file if it was overwritten
-          cp /tmp/fork-sync.yml .github/workflows/fork-sync.yml || true
+          cp /tmp/fork-sync.yml .github/workflows/sync.yml || true
 
       - name: Push changes to origin
         env:
