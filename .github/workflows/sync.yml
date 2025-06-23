@@ -3,7 +3,7 @@ name: Sync Fork with Upstream (Ignore Sync Workflow)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *' # Every day at 3AM UTC
+    - cron: '0 2 * * *' # Every day at 3AM UTC
 
 jobs:
   sync:
