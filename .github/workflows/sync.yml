@@ -1,4 +1,4 @@
-name: 🔄 Sync Fork with Upstream (Ignore Sync Workflow)
+name: Sync Fork with Upstream (Ignore Sync Workflow)
 
 on:
   workflow_dispatch:
@@ -27,13 +27,13 @@ jobs:
 
       - name: Merge upstream into fork, excluding sync workflow
         run: |
-          git checkout main
+          git checkout master
 
           # Save your current sync file
           cp .github/workflows/sync.yml /tmp/fork-sync.yml || true
 
           # Merge everything
-          git merge upstream/master --no-edit || echo "Nothing to merge"
+          git merge master --no-edit || echo "Nothing to merge"
 
           # Restore your sync file if it was overwritten
           cp /tmp/fork-sync.yml .github/workflows/sync.yml || true
@@ -42,4 +42,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git push origin main
+          git push origin master
