@@ -37,9 +37,3 @@ jobs:
 
           # Restore your sync file if it was overwritten
           cp /tmp/fork-sync.yml .github/workflows/sync.yml || true
-
-      - name: Push changes to origin
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git push origin master
